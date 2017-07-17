@@ -17,11 +17,21 @@ def create(liste):
         screen.addstr(1,2,"(w)Yukari/Up (s)Asagi/Down (e)Sec", curses.A_BOLD)
         a = 0
         b = 4
+        c = 3
         for oge in liste:
-            if pos == a:
-                screen.addstr(b, 4, "".join(liste[a]), s)
+            if int(a/15)<1:
+                if pos == a:
+                    screen.addstr(b, 4, "".join(liste[a]), s)
+                else:
+                    screen.addstr(b, 4, "".join(liste[a]), h)
             else:
-                screen.addstr(b, 4, "".join(liste[a]), h)
+                c = c + 1
+                if pos == a:
+                    screen.addstr(c, 23, "".join(liste[a]), s)
+                else:
+                    screen.addstr(c, 23, "".join(liste[a]), h)
+            
+            
             a = a + 1
             b = b + 1
         screen.refresh()
