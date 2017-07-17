@@ -46,4 +46,4 @@ def create(liste):
     
 if __name__=="__main__":
     list = input("ogeleri giriniz.").split(" ")
-    create(list)
+    print(list[create(list)]+" secenegini sectiniz.")
