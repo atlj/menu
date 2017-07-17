@@ -35,23 +35,27 @@ def create(liste):
             a = a + 1
             b = b + 1
         screen.refresh()
-        inp = screen.getkey(1,1)
-        if inp == 'e':
-            screen.refresh()
-            curses.echo()
-            screen.keypad(False)
-            curses.endwin()
-            break
-        if inp == 'w':
-            if pos > 0:
-                pos = pos - 1
-            else:
-                pos = len(liste)-1
-        if inp== 's':
-            if pos < len(liste)-1:
-                pos = pos + 1
-            else:
-                pos=0
+        try:
+            inp = screen.getkey(1,1)
+        
+            if inp == 'e':
+                screen.refresh()
+                curses.echo()
+                screen.keypad(False)
+                curses.endwin()
+                break
+            if inp == 'w':
+                if pos > 0:
+                    pos = pos - 1
+                else:
+                    pos = len(liste)-1
+            if inp== 's':
+                if pos < len(liste)-1:
+                    pos = pos + 1
+                else:
+                    pos=0
+        except Exception as e:
+            pass
     return pos
     
 if __name__=="__main__":
